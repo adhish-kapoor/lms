@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Students</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+        <header>
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="index.html">LearningManagementSystem</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a class="nav-link" href="courses.html">Courses</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="students.html">Students</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="subjects.html">Subjects</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="teachers.html">Teachers</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+    <div id="studentlinks">
+       
+        <ul>
+            <li v-for="student in studentarr">
+                {{student.name}}
+            </li>
+        </ul>
+        <button class="btn btn-info" v-on:click="getAllStudents()">All Students</button>
+        <div class="add-student">
+            <hr>
+            <label>Name</label>
+            <input type="text" v-model="studentName">
+            <br>
+            <label>Email</label>
+            <input type="text" v-model="studentEmail">
+            <br>
+            <label>Mobile</label>
+            <input type="text" v-model="studentMobile">
+            <br>
+            <button class="btn btn-info" v-on:click="addnewStudent()">Add Student</button>
+            <br>
+            <hr>
+            <input type="text" v-model="studentId">
+            <button class="btn btn-info" v-on:click="getStudentById()">Get Student By ID</button>
+            <p>{{studentDetail.name}}</p>
+            <hr>
+            <input type="text" v-model="studId">
+            <button class="btn btn-info" v-on:click="getBatchesofStudent(studId)">Get Batches By ID</button>
+
+        </div>
+
+
+    </div>
+    <script src="./lib/vue.js"></script>
+    <script src="./lib/axios.min.js"></script>
+    <script src="./js/student.js"></script>
+</body>
+
+</html>

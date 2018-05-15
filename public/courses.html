@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Courses</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+        <header>
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="index.html">LearningManagementSystem</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a class="nav-link" href="courses.html">Courses</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="students.html">Students</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="subjects.html">Subjects</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="teachers.html">Teachers</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+    <div id="courselinks">
+        <ul>
+            <li v-for="course in coursearr">
+                {{course.name}}
+            </li>
+        </ul>
+        <button class="btn btn-info" v-on:click="getAllCourses()">All Courses</button>
+        <hr>
+        <label>Name</label>
+        <input type="text" v-model="CourseName">
+        <button class="btn btn-info" v-on:click="addnewCourse()">Add Course</button>
+        <hr>
+        
+        <input type="text" placeholder="Enter Course Id" v-model="courseId">
+        <button class="btn btn-info" v-on:click="getBatchesByCourse()">Get Batches</button>
+        <ul>
+            <li v-for="batch in batches">
+                {{batch.id}} {{batch.name}} 
+            </li>
+        </ul>
+    </div>
+
+</body>
+<script src="./lib/vue.js"></script>
+<script src="./lib/axios.min.js"></script>
+<script src="./js/course.js"></script>
+</html>
