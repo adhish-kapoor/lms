@@ -2,7 +2,8 @@ const Sequelize=require('sequelize')
 
 const db= new Sequelize('lms','root','root',{
     host:'localhost',
-    dialect:'mysql'
+    dialect:'sqlite',
+    storage: './sms.db'  
 })
 
 const Course=db.define('courses',{
